@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio de [Tu Nombre]</title>
+  <meta name="description" content="Portafolio de [Tu Nombre]." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0f19;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--accent:#60a5fa}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;color:var(--text);background:linear-gradient(180deg,#0b0f19,#0f172a)}
+    a{color:var(--accent);text-decoration:none}
+    .header{position:sticky;top:0;background:rgba(11,15,25,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1f2937}
+    .container{max-width:1000px;margin:0 auto;padding:0 16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .hero{padding:72px 0 32px;text-align:center}
+    h1{font-size:clamp(28px,6vw,48px);margin:0 0 12px} h2{font-size:24px;margin:32px 0 12px}
+    .pill{display:inline-block;border:1px solid #374151;border-radius:9999px;padding:6px 12px;font-size:14px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:16px}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid #1f2937;margin-top:32px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #374151;background:#0b1220}
+    section{scroll-margin-top:72px}
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <strong>[TuNombre].dev</strong>
+    <nav>
+      <a href="#proyectos" class="btn">Proyectos</a>
+      <a href="#sobre-mi" class="btn" style="margin-left:8px">Sobre mí</a>
+      <a href="#contacto" class="btn" style="margin-left:8px">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <span class="pill">Disponible para oportunidades</span>
+    <h1>Hola, soy [Tu Nombre] — desarrollador/a</h1>
+    <p style="color:var(--muted);max-width:720px;margin:0 auto 16px">
+      Construyo aplicaciones web rápidas y accesibles. Me especializo en [tus tecnologías].
+    </p>
+    <p>
+      <a class="btn" href="mailto:[tu.correo]">📮 Contáctame</a>
+      <a class="btn" href="https://github.com/[tuusuario]" style="margin-left:8px">⭐ GitHub</a>
+    </p>
+  </section>
+
+  <section id="proyectos">
+    <h2>Proyectos destacados</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Proyecto 1</h3>
+        <p class="muted">Descripción breve. Tecnologías: React, Express.</p>
+        <p><a href="#" target="_blank">Demo</a> • <a href="#" target="_blank">Código</a></p>
+      </article>
+      <article class="card">
+        <h3>Proyecto 2</h3>
+        <p class="muted">Descripción breve. Tecnologías: Python, FastAPI.</p>
+        <p><a href="#" target="_blank">Demo</a> • <a href="#" target="_blank">Código</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>Soy [breve bio]. Interesado/a en [temas].</p>
+    <ul>
+      <li>🛠️ Habilidades: HTML, CSS, JS, [otras]</li>
+      <li>📚 Educación: [tu formación]</li>
+      <li>🌎 Idiomas: [tus idiomas]</li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: <a href="mailto:[tu.correo]">[tu.correo]</a> • LinkedIn: <a href="#" target="_blank">[tu perfil]</a></p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> [Tu Nombre]</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
