@@ -1,181 +1,195 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="system">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio – Angie Carvajal</title>
-  <meta name="description" content="Portfolio of Angie Carvajal: Electronic Engineer, Data Analysis & Automation. Entry-level projects and internship experience." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IoT Dog Anxiety Monitoring (ASC) · Public Summary · Angie Carvajal</title>
+  <meta name="description" content="Public-safe summary of an IoT thesis project for Canine Separation Anxiety (ASC). Includes problem overview, high-level architecture, anonymized visuals, and executive summary.">
+  <meta name="color-scheme" content="light dark" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0b0f19;
-      --bg-soft:#0f172a;
-      --card:#111827;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --accent:#60a5fa;
-      --border:#1f2937;
-      --shadow: 0 8px 20px rgba(0,0,0,.2);
-      --radius: 16px;
+    :root{
+      --bg:#0b0f19; --bg-soft:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937;
+      --accent:#60a5fa; --accent2:#a78bfa; --ok:#22c55e; --shadow:0 12px 28px rgba(0,0,0,.25); --radius:16px
     }
     @media (prefers-color-scheme: light){
-      :root{
-        --bg:#ffffff; --bg-soft:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb;
-        --shadow: 0 8px 24px rgba(2,8,23,.08);
-      }
+      :root{ --bg:#fff; --bg-soft:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow:0 10px 26px rgba(2,8,23,.08); }
     }
+    [data-theme="light"]{ --bg:#fff; --bg-soft:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow:0 10px 26px rgba(2,8,23,.08) }
+    [data-theme="dark"]{ --bg:#0b0f19; --bg-soft:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --shadow:0 12px 28px rgba(0,0,0,.25) }
     *{box-sizing:border-box}
-    body {
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
-      background:linear-gradient(180deg,var(--bg),var(--bg-soft));
-      color:var(--text);
-    }
-    a { color:var(--accent); text-decoration:none }
-    .container { max-width:1080px; margin:0 auto; padding:0 20px }
-    header {
-      position:sticky; top:0; background:rgba(11,15,25,.8);
-      backdrop-filter:blur(8px); border-bottom:1px solid var(--border); z-index:100;
-    }
-    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .brand { font-weight:800; font-size:18px }
-    nav a { margin-left:12px; font-weight:600 }
-    .hero { text-align:center; padding:72px 0 40px }
-    h1 { font-size:clamp(28px,6vw,48px); margin:0 0 12px }
-    h2 { font-size:24px; margin:32px 0 16px }
-    p.subtitle { color:var(--muted); max-width:720px; margin:0 auto 20px }
-    .btn {
-      display:inline-block; padding:10px 16px; border-radius:12px;
-      border:1px solid var(--border); background:var(--card); box-shadow:var(--shadow);
-      margin:6px 4px; font-weight:600;
-    }
-    .btn:hover { transform:translateY(-1px) }
-    .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) }
-    .card {
-      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-      padding:20px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
-    }
-    .muted { color:var(--muted) }
-    ul.list { margin:0; padding-left:18px }
-    footer { padding:30px 0; text-align:center; color:var(--muted); border-top:1px solid var(--border); margin-top:40px }
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg),var(--bg-soft));color:var(--text)}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:100;background:color-mix(in oklab,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg,var(--card),color-mix(in oklab,var(--card) 85%,var(--bg-soft)));box-shadow:var(--shadow);color:var(--text);font-weight:600}
+    .btn.ghost{background:transparent;box-shadow:none}
+    .hero{padding:64px 0 26px;text-align:center}
+    h1{font-size:clamp(28px,6vw,48px);margin:0 0 10px}
+    h2{font-size:clamp(20px,3.5vw,28px);margin:0 0 12px}
+    .subtitle{max-width:860px;margin:0 auto;color:var(--muted)}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:14px 0 0}
+    .badge{border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted);background:color-mix(in oklab,var(--card) 75%,var(--bg-soft))}
+    .section{padding:28px 0}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .muted{color:var(--muted)}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .kpi{border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;background:color-mix(in oklab,var(--card) 80%,var(--bg-soft))}
+    .kpi h3{margin:0;font-size:clamp(20px,4vw,28px)}
+    .kpi p{margin:4px 0 0;color:var(--muted);font-size:14px}
+    .col-12{grid-column:span 12}.col-8{grid-column:span 8}.col-6{grid-column:span 6}.col-4{grid-column:span 4}
+    @media (max-width: 900px){.col-8,.col-6,.col-4{grid-column:span 12}.kpis{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 560px){.kpis{grid-template-columns:1fr}}
+    .img{width:100%;height:auto;border-radius:14px;border:1px solid var(--border)}
+    .list{margin:0;padding-left:18px}
+    .callout{border:1px dashed var(--border);border-radius:14px;padding:14px;background:color-mix(in oklab,var(--bg-soft) 85%,transparent)}
+    .footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
   </style>
 </head>
 <body>
-<header>
-  <div class="container nav">
-    <div class="brand">Angie Carvajal</div>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">🐶 IoT Dog Anxiety (ASC) · Public Summary</div>
+      <nav>
+        <a class="btn ghost" href="#overview">Overview</a>
+        <a class="btn ghost" href="#architecture">Architecture</a>
+        <a class="btn ghost" href="#highlights">Highlights</a>
+        <a class="btn ghost" href="#assets">Assets</a>
+        <button class="btn" id="themeToggle" aria-label="Toggle theme">🌓 Theme</button>
+      </nav>
+    </div>
+  </header>
 
-<main class="container">
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Electronic Engineer · Data & Automation</h1>
+  <!-- Hero -->
+  <section class="hero container">
+    <h1>IoT System for Canine Separation Anxiety (ASC)</h1>
     <p class="subtitle">
-      Entry-level professional with hands-on experience in data analysis, automation, and software validation.
-      Skilled in Excel, SQL, Python, Power BI, and Tableau. Passionate about using technology to improve processes and insights.
+      Public-safe overview of my thesis: wearable + fixed station + cloud dashboards + mobile app to monitor indicators related
+      to ASC and provide actionable insights for vets and owners. This page intentionally omits full code and detailed documentation.
     </p>
-    <p>
-      <a class="btn" href="mailto:angiet.carvajal@javeriana.edu.co">📮 Email</a>
-      <a class="btn" href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank">💼 LinkedIn</a>
-      <a class="btn" href="https://github.com/TU-USUARIO" target="_blank">⭐ GitHub</a>
+    <div class="badges" aria-label="tech badges">
+      <span class="badge">ESP32 / ESP32-CAM</span>
+      <span class="badge">MQTT · ThingsBoard</span>
+      <span class="badge">Firebase · Android</span>
+      <span class="badge">Anonymized visuals</span>
+    </div>
+    <p style="margin-top:14px">
+      <!-- TODO: add a short executive summary PDF (2–4 pages), not the full thesis -->
+      <a class="btn" href="docs/executive-summary.pdf" target="_blank" rel="noopener">📄 Executive Summary (PDF)</a>
+      <!-- Optional: contact -->
+      <a class="btn" href="mailto:angiet.carvajal@javeriana.edu.co">✉️ Contact</a>
     </p>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Highlighted Projects</h2>
+  <!-- KPIs -->
+  <section class="container section" id="overview">
+    <div class="kpis" role="group" aria-label="Key indicators">
+      <div class="kpi"><h3>End-to-end</h3><p>Wearable + Fixed + Cloud + App</p></div>
+      <div class="kpi"><h3>Real-time</h3><p>Dashboards & Alerts</p></div>
+      <div class="kpi"><h3>Privacy</h3><p>No raw data or code</p></div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="container section">
     <div class="grid">
-
-      <!-- SLB Internship Project -->
-      <article class="card">
-        <h3>RI – Accounts Data Quality (Internship at SLB)</h3>
+      <div class="col-8 card" id="problem">
+        <h2>Problem & Approach</h2>
         <p class="muted">
-          Internship project focused on cleaning and validating over <strong>90,000 records</strong> in SAP C4C.
-          Using advanced Excel (VLOOKUP, filters, conditionals, pivot tables), I updated ~4,000 accounts,
-          prioritized the top 35 key accounts, and improved data availability for Relationship Intelligence (RI).
+          ASC is challenging to monitor outside controlled environments. This project proposes an IoT approach combining
+          non-invasive sensing (wearable), ambient context (fixed station), and cloud visualization to provide continuous,
+          interpretable signals for stakeholders. The public repo focuses on the story and outcomes—no proprietary details.
         </p>
+      </div>
+
+      <div class="col-4 card">
+        <h2>Scope (Public)</h2>
         <ul class="list">
-          <li>Transitioned accounts from <strong>RI No → RI Yes</strong>, enabling engagement insights.</li>
-          <li>Reviewed allowlisted domains and tracked auto-modified accounts for re-validation.</li>
-          <li>Prepared files and documentation for SAP support cases.</li>
+          <li>High-level architecture</li>
+          <li>Anonymized screenshots/mockups</li>
+          <li>Executive summary (PDF)</li>
+          <li><em>No</em> full code or thesis PDF</li>
         </ul>
-        <p>
-          <a class="btn" href="https://github.com/TU-USUARIO/ri-accounts-data-quality" target="_blank">🔗 View Repo</a>
-          <a class="btn" href="slides/internship_summary_ri.pdf" target="_blank">📑 Slides</a>
-        </p>
-      </article>
+      </div>
 
-      <!-- IoT Dog Anxiety Monitoring -->
-      <article class="card">
-        <h3>IoT Dog Anxiety Monitoring System</h3>
-        <p class="muted">
-          IoT system using ESP32/ESP32-CAM and Firebase to monitor dog anxiety in real time,
-          with automatic alerts and dashboards in ThingsBoard.
-        </p>
-        <p><a class="btn" href="https://github.com/TU-USUARIO/iot-dog-anxiety" target="_blank">🔗 View Repo</a></p>
-      </article>
+      <div class="col-12 card" id="architecture">
+        <h2>High-Level Architecture</h2>
+        <p class="muted">Acquisition → Connectivity (MQTT/Wi-Fi) → Cloud dashboards → Mobile interface. Diagram is illustrative.</p>
+        <!-- TODO: replace with your assets if you have them -->
+        <img class="img" src="assets/arch.png" alt="Illustrative architecture diagram (anonymized placeholder)">
+      </div>
 
-      <!-- Financial Automation -->
-      <article class="card">
-        <h3>Financial Process Automation</h3>
-        <p class="muted">
-          Python tool that uploads financial files, detects inconsistencies, and generates compact Excel reports,
-          reducing validation time for accounting teams.
-        </p>
-        <p><a class="btn" href="https://github.com/TU-USUARIO/financial-automation" target="_blank">🔗 View Repo</a></p>
-      </article>
+      <div class="col-6 card" id="highlights">
+        <h2>Highlights</h2>
+        <ul class="list">
+          <li>Wearable captures physiological signals and sends summaries periodically.</li>
+          <li>Fixed node provides ambient context (e.g., noise, snapshots).</li>
+          <li>Cloud dashboards show real-time & historical trends, plus alerts.</li>
+          <li>Mobile app for owners: status, notifications, and history.</li>
+        </ul>
+      </div>
 
-      <!-- IoT Access Control Web -->
-      <article class="card">
-        <h3>IoT Access Control Web Platform</h3>
-        <p class="muted">
-          Web application (PHP, MySQL, JS, HTML/CSS) integrated with ThingsBoard for real-time access metrics visualization.
-        </p>
-        <p><a class="btn" href="https://safedoor.com.controlesdeacceso.com.co" target="_blank">🌐 Live Demo</a></p>
-      </article>
+      <div class="col-6 card">
+        <h2>What’s intentionally omitted</h2>
+        <ul class="list">
+          <li>Full thesis PDF and appendices.</li>
+          <li>Complete firmware/app source code.</li>
+          <li>Datasets, sensor raw data, identifiers.</li>
+          <li>Any configuration, secrets or internal URLs.</li>
+        </ul>
+      </div>
 
+      <div class="col-12 card" id="assets">
+        <h2>Public Assets</h2>
+        <p class="muted">You can include safe, anonymized visuals only:</p>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+          <!-- TODO: swap placeholders with anonymized images (no sensitive info) -->
+          <img class="img" src="assets/cover.png" alt="Project cover (placeholder)">
+          <img class="img" src="assets/dashboard.png" alt="Dashboard sample (placeholder)">
+          <img class="img" src="assets/app.png" alt="Mobile app mockup (placeholder)">
+        </div>
+        <p style="margin-top:10px">
+          <!-- Optional: link to a short public slide deck instead of full thesis -->
+          <a class="btn" href="docs/executive-summary.pdf" target="_blank" rel="noopener">📄 Executive Summary (PDF)</a>
+          <a class="btn" href="mailto:angiet.carvajal@javeriana.edu.co">Request full details</a>
+        </p>
+      </div>
+
+      <div class="col-12 card">
+        <h2>Disclaimer</h2>
+        <div class="callout">
+          This repository is a <strong>public-safe summary</strong>. It does not include full documentation, source code,
+          datasets, or sensitive identifiers. For academic or technical inquiries, please contact me directly.
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>IT Intern – SLB (Jun 2024 – Dec 2024)</h3>
-      <ul class="list">
-        <li>Cleaned, validated, and analyzed >90,000 records in SAP C4C with Excel.</li>
-        <li>Performed regression testing in SAP C4C/CPQ.</li>
-        <li>Tracked cases in Azure DevOps and documented bugs, guides, and best practices.</li>
-        <li>Used AI tools (ChatGPT, Copilot) to accelerate documentation and reporting.</li>
-      </ul>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made by <strong>Angie Carvajal</strong> · <a href="mailto:angiet.carvajal@javeriana.edu.co">Contact</a> · <a href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/TU-USER" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="muted">© <span id="year"></span> · Public-safe summary — no confidential data or full code.</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      📧 <a href="mailto:angiet.carvajal@javeriana.edu.co">angiet.carvajal@javeriana.edu.co</a><br>
-      📞 <a href="tel:+573045873326">+57 304 587 3326</a><br>
-      💼 <a href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank">linkedin.com/in/angie-tatiana-carvajal-vargas</a><br>
-      ⭐ <a href="https://github.com/TU-USUARIO" target="_blank">github.com/TU-USUARIO</a>
-    </p>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    © <span id="year"></span> Angie Carvajal — Portfolio
-  </div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    // Theme toggle: system → light → dark
+    (function(){
+      const root = document.documentElement, attr='data-theme';
+      const btn = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme-pref'); if(saved) root.setAttribute(attr, saved);
+      function next(t){ return t==='system'?'light':t==='light'?'dark':'system'; }
+      btn?.addEventListener('click', ()=>{
+        const curr = root.getAttribute(attr) || 'system'; const n = next(curr);
+        root.setAttribute(attr, n); localStorage.setItem('theme-pref', n); btn.title=`Theme: ${n}`;
+      });
+    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
