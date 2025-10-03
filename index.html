@@ -1,339 +1,181 @@
 <!doctype html>
-<html lang="en" data-theme="system">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RI — Accounts Data Quality (Internship) · Angie Carvajal</title>
-  <meta name="description" content="Data quality improvements for customer accounts/contacts in SAP C4C. >90k records cleaned; Excel-driven analysis and reporting; focus on top 35 accounts and ~4k updated records." />
-  <meta name="color-scheme" content="light dark" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Angie Carvajal</title>
+  <meta name="description" content="Portfolio of Angie Carvajal: Electronic Engineer, Data Analysis & Automation. Entry-level projects and internship experience." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
+    :root {
       --bg: #0b0f19;
       --bg-soft:#0f172a;
       --card:#111827;
       --text:#e5e7eb;
       --muted:#9ca3af;
-      --border:#1f2937;
       --accent:#60a5fa;
-      --accent-2:#a78bfa;
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --danger:#ef4444;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --border:#1f2937;
+      --shadow: 0 8px 20px rgba(0,0,0,.2);
       --radius: 16px;
     }
     @media (prefers-color-scheme: light){
       :root{
         --bg:#ffffff; --bg-soft:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb;
-        --shadow: 0 12px 28px rgba(2,8,23,.08);
+        --shadow: 0 8px 24px rgba(2,8,23,.08);
       }
     }
-    [data-theme="light"] {
-      --bg:#ffffff; --bg-soft:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb;
-      --shadow: 0 12px 28px rgba(2,8,23,.08);
-    }
-    [data-theme="dark"]  {
-      --bg: #0b0f19; --bg-soft:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
-    }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
+    body {
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
       background:linear-gradient(180deg,var(--bg),var(--bg-soft));
       color:var(--text);
     }
-    a{color:var(--accent);text-decoration:none}
-    .container{max-width:1080px;margin:0 auto;padding:0 20px}
-    .header{
-      position:sticky; top:0; z-index:100;
-      backdrop-filter:saturate(140%) blur(10px);
-      background:color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom:1px solid var(--border);
+    a { color:var(--accent); text-decoration:none }
+    .container { max-width:1080px; margin:0 auto; padding:0 20px }
+    header {
+      position:sticky; top:0; background:rgba(11,15,25,.8);
+      backdrop-filter:blur(8px); border-bottom:1px solid var(--border); z-index:100;
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; height:64px;
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .brand { font-weight:800; font-size:18px }
+    nav a { margin-left:12px; font-weight:600 }
+    .hero { text-align:center; padding:72px 0 40px }
+    h1 { font-size:clamp(28px,6vw,48px); margin:0 0 12px }
+    h2 { font-size:24px; margin:32px 0 16px }
+    p.subtitle { color:var(--muted); max-width:720px; margin:0 auto 20px }
+    .btn {
+      display:inline-block; padding:10px 16px; border-radius:12px;
+      border:1px solid var(--border); background:var(--card); box-shadow:var(--shadow);
+      margin:6px 4px; font-weight:600;
     }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
-    .nav a.btn{margin-left:8px}
-    .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; border-radius:12px; border:1px solid var(--border);
-      background:linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 80%, var(--bg-soft)));
-      box-shadow:var(--shadow);
-      transition:.2s transform ease;
-      color:var(--text);
+    .btn:hover { transform:translateY(-1px) }
+    .grid { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) }
+    .card {
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      padding:20px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
     }
-    .btn:hover{ transform: translateY(-1px) }
-    .btn.primary{ border-color: color-mix(in oklab, var(--accent) 50%, var(--border)); }
-    .btn.ghost{ background:transparent; box-shadow:none }
-
-    .hero{
-      padding:56px 0 20px; text-align:center;
-    }
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px dashed var(--border); border-radius:999px; padding:6px 12px; color:var(--muted); font-size:14px;
-    }
-    h1{font-size:clamp(28px,6vw,48px); margin:14px 0 8px}
-    .subtitle{color:var(--muted); max-width:840px; margin:0 auto 14px}
-    .badges{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:16px 0}
-    .badge{
-      border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:12px; color:var(--muted);
-      background: color-mix(in oklab, var(--card) 70%, var(--bg-soft));
-    }
-
-    .section{padding:28px 0}
-    .section h2{font-size:clamp(20px,3.5vw,28px); margin:0 0 12px}
-    .grid{
-      display:grid; gap:16px;
-      grid-template-columns: repeat(12, 1fr);
-    }
-    .card{
-      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
-    }
-    .muted{color:var(--muted)}
-    .kpis{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
-    }
-    .kpi{border:1px solid var(--border); border-radius:14px; padding:14px; text-align:center; background:color-mix(in oklab, var(--card) 80%, var(--bg-soft))}
-    .kpi h3{margin:0; font-size:clamp(20px,4vw,28px)}
-    .kpi p{margin:4px 0 0; color:var(--muted); font-size:14px}
-
-    /* layout helpers */
-    .col-12{grid-column: span 12}
-    .col-6{grid-column: span 6}
-    .col-4{grid-column: span 4}
-    .col-8{grid-column: span 8}
-    .col-3{grid-column: span 3}
-    @media (max-width: 900px){
-      .col-8{grid-column: span 12}
-      .col-6{grid-column: span 12}
-      .col-4{grid-column: span 12}
-      .col-3{grid-column: span 6}
-      .kpis{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width: 560px){
-      .kpis{grid-template-columns:1fr}
-      .nav .hide-sm{display:none}
-    }
-
-    .list{margin:0; padding-left:18px}
-    .title{font-weight:600; margin:0 0 6px}
-    .code{
-      font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-      font-size: 12.5px; border:1px solid var(--border); border-radius:12px; padding:12px;
-      background: color-mix(in oklab, var(--card) 75%, var(--bg-soft));
-      overflow:auto;
-    }
-
-    .footer{padding:40px 0; margin-top:16px; border-top:1px solid var(--border); color:var(--muted); text-align:center}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .toggle{cursor:pointer}
-    .anchor{scroll-margin-top:80px}
-
-    /* chips */
-    .chip{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;margin:4px 6px 0 0}
-    .ok{color:var(--ok)} .warn{color:var(--warn)} .danger{color:var(--danger)}
-
-    /* callouts */
-    .callout{border:1px dashed var(--border); border-radius:14px; padding:14px; background:color-mix(in oklab, var(--bg-soft) 85%, transparent)}
+    .muted { color:var(--muted) }
+    ul.list { margin:0; padding-left:18px }
+    footer { padding:30px 0; text-align:center; color:var(--muted); border-top:1px solid var(--border); margin-top:40px }
   </style>
 </head>
 <body>
-  <!-- Header / Nav -->
-  <header class="header">
-    <div class="container nav">
-      <div class="brand">
-        <span aria-hidden="true">📊</span> <span>RI — Accounts Data Quality</span>
-      </div>
-      <nav>
-        <a class="btn ghost hide-sm" href="#overview">Overview</a>
-        <a class="btn ghost hide-sm" href="#impact">Impact</a>
-        <a class="btn ghost hide-sm" href="#deliverables">Deliverables</a>
-        <button class="btn" id="themeToggle" aria-label="Toggle color theme"><span class="toggle">🌓</span><span class="hide-sm"> Theme</span></button>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container nav">
+    <div class="brand">Angie Carvajal</div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="eyebrow">Internship project · SLB · 2024</div>
-    <h1>Data Quality for Accounts & Contacts in SAP C4C</h1>
+<main class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Electronic Engineer · Data & Automation</h1>
     <p class="subtitle">
-      Cleaning and standardization of websites/domains to improve Relationship Intelligence (RI) availability and engagement visibility.
-      Work focused on the top 35 primary accounts and ~4k updated records, within a >90k dataset — all analysis performed in Excel.
+      Entry-level professional with hands-on experience in data analysis, automation, and software validation.
+      Skilled in Excel, SQL, Python, Power BI, and Tableau. Passionate about using technology to improve processes and insights.
     </p>
-    <div class="badges" aria-label="tech badges">
-      <span class="badge">Excel (VLOOKUP · Filters · Conditionals · Pivot Tables)</span>
-      <span class="badge">Data Cleansing</span>
-      <span class="badge">Reporting</span>
-      <span class="badge">Anonymized Results</span>
-    </div>
-    <p style="margin-top:12px">
-      <!-- TODO: replace with your repo URL and slides path -->
-      <a class="btn primary" href="https://github.com/TU-USUARIO/ri-accounts-data-quality" target="_blank" rel="noopener">View Repository</a>
-      <a class="btn" href="slides/internship_summary_ri.pdf" target="_blank" rel="noopener">Slides (PDF)</a>
+    <p>
+      <a class="btn" href="mailto:angiet.carvajal@javeriana.edu.co">📮 Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank">💼 LinkedIn</a>
+      <a class="btn" href="https://github.com/TU-USUARIO" target="_blank">⭐ GitHub</a>
     </p>
   </section>
 
-  <!-- KPI quick stats -->
-  <section class="container section" id="overview">
-    <div class="kpis" role="group" aria-label="Key indicators">
-      <div class="kpi">
-        <h3>&gt;90k</h3>
-        <p>Total records reviewed</p>
-      </div>
-      <div class="kpi">
-        <h3>35</h3>
-        <p>Top primary accounts (focus)</p>
-      </div>
-      <div class="kpi">
-        <h3>~4k</h3>
-        <p>Accounts updated via Excel</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Content sections -->
-  <section class="container section">
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
     <div class="grid">
-      <div class="col-8 card anchor" id="context">
-        <h2>Context & Goal</h2>
+
+      <!-- SLB Internship Project -->
+      <article class="card">
+        <h3>RI – Accounts Data Quality (Internship at SLB)</h3>
         <p class="muted">
-          In SAP C4C, Relationship Intelligence (RI) surfaces engagement insights when the account has valid website/domain data.
-          I supported the effort to normalize account websites and contact domains so more accounts could transition from <strong>RI No → RI Yes</strong>.
+          Internship project focused on cleaning and validating over <strong>90,000 records</strong> in SAP C4C.
+          Using advanced Excel (VLOOKUP, filters, conditionals, pivot tables), I updated ~4,000 accounts,
+          prioritized the top 35 key accounts, and improved data availability for Relationship Intelligence (RI).
         </p>
-        <div class="callout">
-          <strong>RI semantics (public-safe)</strong><br/>
-          <span class="chip ok">RI Yes</span> Feature available → engagement visible.<br/>
-          <span class="chip warn">RI No</span> Feature not available → no engagement shown.<br/>
-          <em>After changes, some accounts moved from RI No to RI Yes.</em>
-        </div>
-      </div>
-
-      <div class="col-4 card">
-        <h2>Scope & Constraints</h2>
         <ul class="list">
-          <li>Top 35 accounts prioritized</li>
-          <li>~4,000 accounts updated so far</li>
-          <li>Excel as primary tool (no code)</li>
-          <li>Confidential data not shared</li>
-        </ul>
-      </div>
-
-      <div class="col-6 card">
-        <h2>What I Did</h2>
-        <ul class="list">
-          <li>Cleaned & standardized websites/domains for accounts and contacts.</li>
-          <li>Summarized progress in Excel using VLOOKUP, filters, conditionals, and pivot tables.</li>
-          <li>Reviewed allowlisted domains and tracked accounts auto-modified by Siebel users to re-validate.</li>
+          <li>Transitioned accounts from <strong>RI No → RI Yes</strong>, enabling engagement insights.</li>
+          <li>Reviewed allowlisted domains and tracked auto-modified accounts for re-validation.</li>
           <li>Prepared files and documentation for SAP support cases.</li>
         </ul>
-      </div>
+        <p>
+          <a class="btn" href="https://github.com/TU-USUARIO/ri-accounts-data-quality" target="_blank">🔗 View Repo</a>
+          <a class="btn" href="slides/internship_summary_ri.pdf" target="_blank">📑 Slides</a>
+        </p>
+      </article>
 
-      <div class="col-6 card">
-        <h2>How I Worked</h2>
-        <ul class="list">
-          <li>Excel pipelines (sheets for input, checks, pivots, and summary).</li>
-          <li>Clear before/after comparison of RI availability per account group.</li>
-          <li>Daily/weekly reporting and concise, reproducible steps.</li>
-          <li>Global collaboration in agile routines.</li>
-        </ul>
-      </div>
+      <!-- IoT Dog Anxiety Monitoring -->
+      <article class="card">
+        <h3>IoT Dog Anxiety Monitoring System</h3>
+        <p class="muted">
+          IoT system using ESP32/ESP32-CAM and Firebase to monitor dog anxiety in real time,
+          with automatic alerts and dashboards in ThingsBoard.
+        </p>
+        <p><a class="btn" href="https://github.com/TU-USUARIO/iot-dog-anxiety" target="_blank">🔗 View Repo</a></p>
+      </article>
 
-      <div class="col-12 card anchor" id="impact">
-        <h2>Impact (Illustrative, Anonymized)</h2>
-        <p class="muted">Below is a safe, qualitative summary you can keep even if exact figures are confidential:</p>
-        <ul class="list">
-          <li>Increased number of accounts with <strong>RI Yes</strong> after standardization, enabling new engagement insights.</li>
-          <li>Improved data availability and reliability for decision-makers.</li>
-          <li>Reduced rework by documenting a repeatable Excel review flow (checklists + pivots).</li>
-        </ul>
-        <div class="callout">
-          <strong>Note:</strong> Any charts or tables included in this repository use <em>synthetic or anonymized data</em> for illustration only.
-        </div>
-      </div>
+      <!-- Financial Automation -->
+      <article class="card">
+        <h3>Financial Process Automation</h3>
+        <p class="muted">
+          Python tool that uploads financial files, detects inconsistencies, and generates compact Excel reports,
+          reducing validation time for accounting teams.
+        </p>
+        <p><a class="btn" href="https://github.com/TU-USUARIO/financial-automation" target="_blank">🔗 View Repo</a></p>
+      </article>
 
-      <div class="col-8 card anchor" id="deliverables">
-        <h2>Key Deliverables</h2>
-        <ul class="list">
-          <li>Summary deck (sanitized) — <a href="slides/internship_summary_ri.pdf" target="_blank" rel="noopener">PDF</a></li>
-          <li>Excel progress summaries (structure & screenshots with dummy data)</li>
-          <li>Reporting templates (status + before/after snapshots)</li>
-          <li>README documentation for public-safe storytelling</li>
-        </ul>
-      </div>
+      <!-- IoT Access Control Web -->
+      <article class="card">
+        <h3>IoT Access Control Web Platform</h3>
+        <p class="muted">
+          Web application (PHP, MySQL, JS, HTML/CSS) integrated with ThingsBoard for real-time access metrics visualization.
+        </p>
+        <p><a class="btn" href="https://safedoor.com.controlesdeacceso.com.co" target="_blank">🌐 Live Demo</a></p>
+      </article>
 
-      <div class="col-4 card">
-        <h2>Repository Map</h2>
-        <pre class="code" aria-label="Repository structure">
-ri-accounts-data-quality/
-├─ index.html                ← You are here
-├─ README.md
-├─ slides/
-│  └─ internship_summary_ri.pdf
-├─ excel/
-│  └─ sample_summaries.xlsx  (synthetic)
-└─ assets/
-   └─ cover.png
-        </pre>
-      </div>
-
-      <div class="col-12 card">
-        <h2>FAQ</h2>
-        <p class="title">Do you share logic or internal rules?</p>
-        <p class="muted">No. This repo describes process and impact only. No proprietary logic, credentials, or internal screenshots.</p>
-        <p class="title">Can I see the exact numbers?</p>
-        <p class="muted">Only anonymized or synthetic examples are provided publicly. Real metrics are confidential.</p>
-        <p class="title">Why Excel?</p>
-        <p class="muted">The analysis and reporting pipeline was fully Excel-driven due to scope, speed, and team tooling alignment.</p>
-      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>Made by <strong>Angie Carvajal</strong> · <a href="mailto:angiet.carvajal@javeriana.edu.co">Contact</a> · <a href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/TU-USUARIO" target="_blank" rel="noopener">GitHub</a></p>
-      <p class="muted">© <span id="year"></span> · This page is public-safe. No confidential data included.</p>
-      <a class="btn ghost" href="#" id="toTop" aria-label="Back to top">↑ Back to top</a>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>IT Intern – SLB (Jun 2024 – Dec 2024)</h3>
+      <ul class="list">
+        <li>Cleaned, validated, and analyzed >90,000 records in SAP C4C with Excel.</li>
+        <li>Performed regression testing in SAP C4C/CPQ.</li>
+        <li>Tracked cases in Azure DevOps and documented bugs, guides, and best practices.</li>
+        <li>Used AI tools (ChatGPT, Copilot) to accelerate documentation and reporting.</li>
+      </ul>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // -- Theme toggle (system / light / dark) --
-    (function(){
-      const attr = 'data-theme';
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      const saved = localStorage.getItem('theme-pref'); // 'light' | 'dark' | 'system'
-      if(saved) root.setAttribute(attr, saved);
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 <a href="mailto:angiet.carvajal@javeriana.edu.co">angiet.carvajal@javeriana.edu.co</a><br>
+      📞 <a href="tel:+573045873326">+57 304 587 3326</a><br>
+      💼 <a href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank">linkedin.com/in/angie-tatiana-carvajal-vargas</a><br>
+      ⭐ <a href="https://github.com/TU-USUARIO" target="_blank">github.com/TU-USUARIO</a>
+    </p>
+  </section>
+</main>
 
-      function nextTheme(curr){
-        if(curr==='system') return 'light';
-        if(curr==='light') return 'dark';
-        return 'system';
-      }
-      btn?.addEventListener('click', ()=>{
-        const current = root.getAttribute(attr) || 'system';
-        const next = nextTheme(current);
-        root.setAttribute(attr, next);
-        localStorage.setItem('theme-pref', next);
-        btn.title = `Theme: ${next}`;
-      });
-    })();
+<footer>
+  <div class="container">
+    © <span id="year"></span> Angie Carvajal — Portfolio
+  </div>
+</footer>
 
-    // -- Back to top --
-    document.getElementById('toTop')?.addEventListener('click', (e)=>{
-      e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});
-    });
-
-    // -- Year --
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
