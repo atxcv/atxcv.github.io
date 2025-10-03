@@ -1,89 +1,194 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio de [Tu Nombre]</title>
-  <meta name="description" content="Portafolio de [Tu Nombre]." />
+  <title>Portfolio – Angie Carvajal</title>
+  <meta name="description" content="Portfolio of Angie Carvajal: Data Analysis, AI-powered automation, and Electronic Engineering projects." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0f19;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--accent:#60a5fa}
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;color:var(--text);background:linear-gradient(180deg,#0b0f19,#0f172a)}
+    :root{
+      --bg:#0b0f19;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--accent:#60a5fa;--border:#1f2937
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;color:var(--text);background:linear-gradient(180deg,#0b0f19,#0f172a)}
     a{color:var(--accent);text-decoration:none}
-    .header{position:sticky;top:0;background:rgba(11,15,25,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1f2937}
+    .header{position:sticky;top:0;background:rgba(11,15,25,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
     .container{max-width:1000px;margin:0 auto;padding:0 16px}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{font-weight:800;letter-spacing:.3px}
     .hero{padding:72px 0 32px;text-align:center}
-    h1{font-size:clamp(28px,6vw,48px);margin:0 0 12px} h2{font-size:24px;margin:32px 0 12px}
-    .pill{display:inline-block;border:1px solid #374151;border-radius:9999px;padding:6px 12px;font-size:14px;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:16px}
-    .card h3{margin:0 0 8px;font-size:18px}
-    .footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid #1f2937;margin-top:32px}
+    h1{font-size:clamp(28px,6vw,48px);margin:0 0 12px}
+    h2{font-size:24px;margin:32px 0 12px}
+    .pill{display:inline-block;border:1px solid var(--border);border-radius:9999px;padding:6px 12px;font-size:14px;color:var(--muted)}
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #374151;background:#0b1220}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .muted{color:var(--muted)}
+    .list{margin:0;padding-left:18px}
+    .footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid var(--border);margin-top:32px}
     section{scroll-margin-top:72px}
+    .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    @media (max-width: 820px){.two-col{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 <header class="header">
   <div class="container nav">
-    <strong>[TuNombre].dev</strong>
+    <strong class="brand">Angie Carvajal</strong>
     <nav>
-      <a href="#proyectos" class="btn">Proyectos</a>
-      <a href="#sobre-mi" class="btn" style="margin-left:8px">Sobre mí</a>
-      <a href="#contacto" class="btn" style="margin-left:8px">Contacto</a>
+      <a href="#projects" class="btn">Projects</a>
+      <a href="#experience" class="btn" style="margin-left:8px">Experience</a>
+      <a href="#contact" class="btn" style="margin-left:8px">Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
+  <!-- HERO -->
   <section class="hero">
-    <span class="pill">Disponible para oportunidades</span>
-    <h1>Hola, soy [Tu Nombre] — desarrollador/a</h1>
-    <p style="color:var(--muted);max-width:720px;margin:0 auto 16px">
-      Construyo aplicaciones web rápidas y accesibles. Me especializo en [tus tecnologías].
+    <span class="pill">Open to new opportunities</span>
+    <h1>Electronic Engineer • Data & Automation</h1>
+    <p class="muted" style="max-width:760px;margin:0 auto 16px">
+      Data analysis, AI-powered automation, and software validation. Hands-on experience in international agile teams (SLB) working with SAP C4C/CPQ, SQL, Python, Power BI, and Tableau. Interested in growing as a Data Analyst and Automation Specialist.
     </p>
     <p>
-      <a class="btn" href="mailto:[tu.correo]">📮 Contáctame</a>
-      <a class="btn" href="https://github.com/[tuusuario]" style="margin-left:8px">⭐ GitHub</a>
+      <a class="btn" href="mailto:angiet.carvajal@javeriana.edu.co">📮 angiet.carvajal@javeriana.edu.co</a>
+      <a class="btn" href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" style="margin-left:8px">💼 LinkedIn</a>
+      <a class="btn" href="https://github.com/TU-USUARIO" style="margin-left:8px">⭐ GitHub</a>
     </p>
+    <p class="muted" style="margin-top:8px">Bogotá, Colombia • +57 304 587 3326</p>
   </section>
 
-  <section id="proyectos">
-    <h2>Proyectos destacados</h2>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
     <div class="grid">
       <article class="card">
-        <h3>Proyecto 1</h3>
-        <p class="muted">Descripción breve. Tecnologías: React, Express.</p>
-        <p><a href="#" target="_blank">Demo</a> • <a href="#" target="_blank">Código</a></p>
+        <h3>Data Cleaning & Visualization Pipeline</h3>
+        <p class="muted">Python/SQL pipeline to clean and analyze datasets (>90k records). Visualizations created with Power BI and Tableau.</p>
+        <p><a href="https://github.com/TU-USUARIO/data-cleaning-pipeline" target="_blank">View Code</a></p>
       </article>
+
       <article class="card">
-        <h3>Proyecto 2</h3>
-        <p class="muted">Descripción breve. Tecnologías: Python, FastAPI.</p>
-        <p><a href="#" target="_blank">Demo</a> • <a href="#" target="_blank">Código</a></p>
+        <h3>IoT Dog Anxiety Monitoring System</h3>
+        <p class="muted">IoT solution using ESP32/ESP32-CAM and Firebase to monitor dog anxiety in real time, send alerts, and display dashboards in ThingsBoard.</p>
+        <p><a href="https://github.com/TU-USUARIO/iot-dog-anxiety" target="_blank">View Code</a></p>
+      </article>
+
+      <article class="card">
+        <h3>IoT Access Control Web Platform</h3>
+        <p class="muted">Web application (PHP, MySQL, JS, HTML/CSS) integrated with ThingsBoard for real-time access metrics visualization.</p>
+        <p><a href="https://safedoor.com.controlesdeacceso.com.co" target="_blank">Live Demo</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Financial Process Automation</h3>
+        <p class="muted">Python tool that uploads financial files, detects inconsistencies, and generates compact Excel reports to speed up validation.</p>
+        <p><a href="https://github.com/TU-USUARIO/financial-automation" target="_blank">View Code</a></p>
       </article>
     </div>
   </section>
 
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>Soy [breve bio]. Interesado/a en [temas].</p>
-    <ul>
-      <li>🛠️ Habilidades: HTML, CSS, JS, [otras]</li>
-      <li>📚 Educación: [tu formación]</li>
-      <li>🌎 Idiomas: [tus idiomas]</li>
-    </ul>
+  <!-- EXPERIENCE + SKILLS -->
+  <section id="experience">
+    <h2>Experience & Skills</h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>IT Intern — SLB (Jun 2024 – Dec 2024)</h3>
+        <ul class="list">
+          <li>Cleaned, validated, and analyzed &gt;90,000 records in SAP C4C using Excel and SQL, improving accuracy and consistency.</li>
+          <li>Performed regression testing across SAP C4C (Opportunities, Leads, Contacts, My Network) and SAP CPQ.</li>
+          <li>Analyzed logs and execution times in SAP CPQ to identify bottlenecks and optimize performance.</li>
+          <li>Refined Relationship Intelligence datasets to enhance customer engagement metrics.</li>
+          <li>Tracked tasks and documented bugs in Azure DevOps, creating Quick Reference Guides that improved adoption.</li>
+          <li>Co-authored a performance report with execution-time visualizations, supporting data-driven decisions.</li>
+          <li>Collaborated with international agile teams and presented progress in English during daily reviews.</li>
+          <li>Leveraged AI tools and prompt engineering to accelerate reporting and analysis.</li>
+        </ul>
+        <h3 style="margin-top:18px">Freelance — Abrecar SAS (Jun 2022 – Dec 2023)</h3>
+        <ul class="list">
+          <li>Performed diagnostics, SMD soldering, and electronic testing on access control boards.</li>
+        </ul>
+        <h3 style="margin-top:18px">Freelance — Outsourcing Contable y Tributario SAS (2019 – Present)</h3>
+        <ul class="list">
+          <li>Developed websites with WordPress/Elementor, optimizing UX, stability, and security.</li>
+          <li>Created a Python automation for financial file review, reducing validation time and errors.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <ul class="list">
+          <li><strong>Data & Visualization:</strong> SQL, Python, Excel, Power BI, Tableau</li>
+          <li><strong>Automation & AI:</strong> Prompt Engineering, ChatGPT, Copilot, Python</li>
+          <li><strong>Cloud & Platforms:</strong> SAP C4C, SAP CPQ, Firebase, ThingsBoard, Azure DevOps, Linux</li>
+          <li><strong>IoT & Embedded:</strong> ESP32/ESP32-CAM, MQTT, Arduino, MATLAB, Simulink, LabVIEW, Alexa Integrations</li>
+          <li><strong>Web:</strong> HTML, CSS, JavaScript, PHP, WordPress, Elementor</li>
+          <li><strong>Electronics:</strong> PCB Design, OrCAD, LTSpice, Altium Designer, SMD soldering, testing</li>
+        </ul>
+        <h3 style="margin-top:18px">Strengths</h3>
+        <ul class="list">
+          <li>Agile teamwork (Scrum)</li>
+          <li>Bilingual communication (English/Spanish)</li>
+          <li>Critical thinking & adaptability</li>
+          <li>Attention to detail in problem solving</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Correo: <a href="mailto:[tu.correo]">[tu.correo]</a> • LinkedIn: <a href="#" target="_blank">[tu perfil]</a></p>
+  <!-- EDUCATION, CERTIFICATIONS, LANGUAGES -->
+  <section id="education">
+    <h2>Education, Certifications & Languages</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Education</h3>
+        <p><strong>Pontificia Universidad Javeriana</strong> — 2020–2025<br>
+        Bachelor’s Degree in Electronic Engineering. Thesis: IoT real-time system for dog anxiety monitoring.</p>
+      </div>
+
+      <div class="card">
+        <h3>Selected Certifications</h3>
+        <ul class="list">
+          <li>Power BI Course — Platzi (2025)</li>
+          <li>Data Analytics Essentials — Cisco (2025)</li>
+          <li>Prompt Engineering with ChatGPT — Platzi (2024)</li>
+          <li>Frontend Developer / Practical Frontend Developer — Platzi (2024)</li>
+          <li>Introduction to IoT — Platzi (2024)</li>
+          <li>Basic UI Design with Android Studio — Platzi (2025)</li>
+          <li>English for IT 2 — Cisco (2024)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Languages</h3>
+        <ul class="list">
+          <li>Spanish: Native</li>
+          <li>English: Advanced (C1, EF SET Certificate – 69/100, 2025)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 <a href="mailto:angiet.carvajal@javeriana.edu.co">angiet.carvajal@javeriana.edu.co</a><br>
+      📞 <a href="tel:+573045873326">+57 304 587 3326</a><br>
+      💼 <a href="https://www.linkedin.com/in/angie-tatiana-carvajal-vargas/" target="_blank">linkedin.com/in/angie-tatiana-carvajal-vargas</a><br>
+      ⭐ <a href="https://github.com/TU-USUARIO" target="_blank">github.com/TU-USUARIO</a>
+    </p>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container">© <span id="year"></span> [Tu Nombre]</div>
+  <div class="container">© <span id="year"></span> Angie Carvajal</div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
